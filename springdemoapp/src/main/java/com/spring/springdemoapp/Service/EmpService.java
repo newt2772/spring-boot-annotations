@@ -1,22 +1,17 @@
 package com.spring.springdemoapp.Service;
 
-import com.spring.springdemoapp.DTO.EmpDTO;
-import com.spring.springdemoapp.Entity.Employee;
-import com.spring.springdemoapp.Repository.EmpRepository;
+import com.spring.springdemoapp.Repository.EmpRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
+//@Component
+@Service //specilization of @Component(managed by Spring) fro business logic layer
 public class EmpService {
 
     @Autowired
-    EmpRepository empRepository;
-
-    public EmpDTO getEmp(Integer id){
-        //business ops
-       Employee employee = empRepository.getEmp(id);
-        return EmpDTO.empMapper(employee);
-        //return employee;
+    EmpRepo empRepo;
+    public String getEmp(){
+        return empRepo.getEmp();
     }
 
 }
